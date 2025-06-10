@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathan Bimier - Futur Expert Cybersécurité & Réseaux</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            --accent-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            --cyber-gradient: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            --neon-blue: #00d4ff;
+            --neon-purple: #b429ff;
+            --text-light: rgba(255, 255, 255, 0.9);
+            --text-dark: #333;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--cyber-gradient);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation futuriste */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, transparent, transparent);
+        }
+
+        nav a:hover, nav a.active {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 30px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        nav a:hover::before {
+            opacity: 1;
+        }
+
+        /* Pages */
+        .page {
+            min-height: 100vh;
+            padding: 120px 0 80px;
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: pageSlideIn 0.8s ease-out;
+        }
+
+        @keyframes pageSlideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section Ultra Moderne */
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(180, 41, 255, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            object-fit: cover;
+            box-shadow: 
+                0 0 0 4px rgba(0, 212, 255, 0.3),
+                0 0 0 8px rgba(180, 41, 255, 0.2),
+                0 20px 40px rgba(0, 0, 0, 0.4);
+            animation: float 3s ease-in-out infinite;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        /* Stats améliorées */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Cards ultra-modernes */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.8s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Tech showcase futuriste */
+        .tech-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .tech-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(180, 41, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tech-item:hover::before {
+            opacity: 1;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+        }
+
+        .tech-item h4 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .tech-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4rem;
+            font-weight: 800;
+        }
+
+        /* Effets de particules */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            animation: float-particle 8s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.5);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .tech-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Effet de particules -->
+    <div class="particles" id="particles"></div>
+
+    <nav>
+        <ul>
+            <li><a href="#" class="nav-link active" data-page="accueil">🚀 Découvrir mon profil</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Accueil -->
+    <div class="page active" id="accueil">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <img src="Snapchat-1777553914.jpg" alt="Nathan Bimier - Étudiant Cybersécurité" class="hero-image">
+                    <h1>Nathan Bimier</h1>
+                    <div class="hero-subtitle">Futur Expert Cybersécurité & Administration Réseaux</div>
+                    <div class="hero-description">
+                        Étudiant passionné en BUT Réseaux & Télécommunications à l'IUT de Caen, je me spécialise dans l'univers fascinant de la cybersécurité et des infrastructures réseau. Ma mission ? Construire les défenses numériques de demain en maîtrisant les technologies de pointe, l'administration système Linux, et les protocoles de sécurisation avancés.
+                        <br><br>
+                        Chaque jour, je développe mes compétences à travers des projets concrets, des travaux pratiques complexes et des challenges techniques stimulants. Mon objectif est clair : devenir un acteur clé de la protection des systèmes d'information dans un monde hyperconnecté où chaque seconde compte.
+                    </div>
+                    <div class="hero-stats">
+                        18 ans • IUT de Caen • Normandie, France<br>
+                        Déterminé à intégrer une entreprise innovante du secteur cybersécurité
+                    </div>
+                    <a href="#contact" class="cta-button">🤝 Collaborons ensemble</a>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">12.4</div>
+                    <div class="stat-label">Moyenne Générale BUT RT</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Projets Techniques Réalisés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Ca vas </div>
+                    <div class="stat-label">Réussite des TP Réseau</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Certifications en Cours</div>
+                </div>
+            </div>
+
+            <h2 class="section-title">🎯 Mon Univers Professionnel</h2>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=200&fit=crop" alt="Cybersécurité et protection des données" class="project-image">
+                    <h3>🛡️ Vision & Objectifs</h3>
+                    <p>
+                        Ma passion pour la cybersécurité s'enracine dans une fascination profonde pour les mécanismes de protection des données et des infrastructures critiques. Je vise à devenir un expert reconnu en sécurité des systèmes d'information, capable de concevoir et d'implémenter des architectures de défense robustes contre les menaces émergentes.
+                        <br><br>
+                        Mon objectif à court terme : maîtriser les outils de détection d'intrusion, les techniques de pentesting éthique, et l'administration sécurisée des réseaux d'entreprise. À long terme, je souhaite contribuer à la recherche en cybersécurité et former la prochaine génération d'experts.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Cybersécurité</span>
+                        <span class="tag">Pentesting</span>
+                        <span class="tag">SOC</span>
+                        <span class="tag">Forensics</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="Réseaux et télécommunications" class="project-image">
+                    <h3>🌐 Expertise Technique</h3>
+                    <p>
+                        Mon parcours en BUT Réseaux & Télécommunications me permet d'acquérir une compréhension approfondie des protocoles réseau, de l'architecture TCP/IP aux technologies émergentes comme la 5G et l'IoT. Je développe une expertise particulière dans la configuration de routeurs Cisco, la gestion des VLAN, et l'optimisation des performances réseau.
+                        <br><br>
+                        Ma force réside dans ma capacité à diagnostiquer rapidement les problèmes réseau complexes et à proposer des solutions innovantes. J'affectionne particulièrement le travail sur les infrastructures critiques où fiabilité et sécurité sont essentielles.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Cisco</span>
+                        <span class="tag">VLAN</span>
+                        <span class="tag">TCP/IP</span>
+                        <span class="tag">Monitoring</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=200&fit=crop" alt="Gaming et technologie" class="project-image">
+                    <h3>🎮 Passions & Innovation</h3>
+                    <p>
+                        Au-delà des études, je cultive une passion dévorante pour l'univers technologique sous toutes ses formes. Le gaming compétitif affûte mes réflexes et ma capacité d'analyse rapide, tandis que le montage PC me permet de comprendre intimement l'architecture matérielle moderne.
+                        <br><br>
+                        Ma participation régulière aux CTF (Capture The Flag) de cybersécurité constitue un terrain d'entraînement privilégié où je teste mes connaissances contre des défis réels. Je partage également mes découvertes tech sur mes réseaux sociaux, contribuant à vulgariser les concepts complexes de sécurité informatique.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">CTF</span>
+                        <span class="tag">Hardware</span>
+                        <span class="tag">Gaming</span>
+                        <span class="tag">Tech Review</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">⚡ Stack Technologique</h2>
+
+            <div class="tech-showcase">
+                <div class="tech-item">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem;">🔐</div>
+                    <h4>Cybersécurité Avancée</h4>
+                    <p>Pentesting, analyse de vulnérabilités, SIEM, détection d'intrusion, forensics numériques et réponse aux incidents</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem;">🌐</div>
+                    <h4>Administration Réseau</h4>
+                    <p>Configuration Cisco, gestion VLAN, routage avancé, QoS, VPN, et optimisation des performances réseau</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem;">🐧</div>
+                    <h4>Systèmes Linux</h4>
+                    <p>Ubuntu Server, CentOS, services système, scripting Bash, automatisation et sécurisation des serveurs</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem;">💻</div>
+                    <h4>Développement</h4>
+                    <p>Python pour l'automatisation, JavaScript, SQL, développement d'outils de sécurité et scripts de monitoring</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem;">📊</div>
+                    <h4>Monitoring & Analytics</h4>
+                    <p>Nagios, Wireshark, analyse de trafic, métriques de performance, alerting intelligent et tableaux de bord</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem;">☁️</div>
+                    <h4>Cloud & Virtualisation</h4>
+                    <p>Docker, VMware vSphere, AWS basics, architecture cloud sécurisée et orchestration de conteneurs</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem;">🔧</div>
+                    <h4>Outils Spécialisés</h4>
+                    <p>Nmap, Metasploit, Burp Suite, Nessus, Kali Linux, OSSEC, et suite complète d'outils de pentesting</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem;">🔒</div>
+                    <h4>Cryptographie</h4>
+                    <p>Chiffrement symétrique/asymétrique, PKI, certificats SSL/TLS, hachage sécurisé et protocoles cryptographiques</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Effet de particules
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            document.getElementById('particles').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        // Créer des particules régulièrement
+        setInterval(createParticle, 300);
+
+        // Animation au scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.card, .stat-card, .tech-item');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialiser les animations
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Style initial pour les éléments animés
+        document.querySelectorAll('.card, .stat-card, .tech-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(50px)';
+            element.style.transition = 'all 0.8s ease';
+        });
+    </script>
+</body>
+</html>
